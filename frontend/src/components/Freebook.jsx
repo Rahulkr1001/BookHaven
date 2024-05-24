@@ -49,20 +49,19 @@ const Freebook = () => {
         <div>
           <h1 className="font-semibold text-xl pb-2">Free Offered Courses</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium veritatis alias pariatur ad dolor repudiandae eligendi
-            corporis nulla non suscipit, iure neque earum?
+            we're offering a free book to all new visitors. Dive into a world of
+            adventure, mystery, or romance with our specially selected book of
+            the month. Don't miss out on this limited-time offer!"
           </p>
         </div>
-      
 
-      <div className="slider-container">
-        <Slider {...settings}>
-        {filterData.map((item)=>(
-          <Cards item={item} key={item.id}/>
-        ))}
-        </Slider>
-      </div>
+        <div className="slider-container">
+          <Slider {...settings}>
+            {filterData.map((item) => (
+              <Cards item={item} key={item.id} />
+            ))}
+          </Slider>
+        </div>
       </div>
     </>
   );
