@@ -5,13 +5,15 @@ import cors from "cors";
 
 import bookRoute from "./route/book.route.js";
 import userRoute from "./route/user.route.js";
+// import contactRoute from "./route/contact.route.js"
 
 dotenv.config();
 
+//app has all functionality of express
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // aceept data in json
 
 const PORT = process.env.PORT || 4000;
 const URI = process.env.Mongo_URI;
@@ -23,6 +25,9 @@ if (!URI) {
     process.exit(1);
 }
 
+
+
+
 mongoose.connect(URI).then(() => {
     console.log("Connected to MongoDB");
 }).catch((error) => {
@@ -30,9 +35,35 @@ mongoose.connect(URI).then(() => {
     process.exit(1); // Exit the process if there's an error connecting to MongoDB
 });
 
+// const connectToMongoDB = async () => {
+//     try {
+//         await mongoose.connect(URI);
+//         console.log("Connected to MongoDB");
+//         return Promise.resolve("Connection Successful"); // Return a resolved promise if successful
+//     } catch (error) {
+//         console.error("Error connecting to MongoDB:", error.message);
+//         return Promise.reject(error); // Return a rejected promise if an error occurs
+//     }
+// };
+
+// // Usage
+// connectToMongoDB()
+//     .then((message) => {
+//         console.log(message); // This will log "Connection Successful"
+//     })
+//     .catch((error) => {
+//         console.error("Connection failed:", error.message); // Handle connection error
+//     });
+
+
+
+
+
 // defining routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
+// app.use("/contact", contactRoute);
+
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
