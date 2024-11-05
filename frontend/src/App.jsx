@@ -5,6 +5,8 @@ import Courses from './courses/Courses'
 import Signup from './components/Signup'
 import Contact from './components/Contact'
 import About from './components/About'
+import Update from './components/Update'
+import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthProvider";
 
 
@@ -20,7 +22,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/Update" element={<Update />} />
         </Routes>
+        <Toaster />
     </div>
     </>
   )

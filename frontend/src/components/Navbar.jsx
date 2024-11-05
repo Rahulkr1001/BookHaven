@@ -3,17 +3,15 @@ import { useState } from "react";
 import Login from "./Login";
 import Logout from "./Logout";
 import { useAuth } from "../context/AuthProvider";
+import Clock from "./Clock";
 
-// Navbar component banate hain
 function Navbar() {
-  const [authUser, setAuthUser] = useAuth(); // Auth context se authUser aur setAuthUser ko use karte hain
+  const [authUser, setAuthUser] = useAuth();
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  ); // Theme state set karte hain (light ya dark)
-  
+  );
   const element = document.documentElement;
   useEffect(() => {
-    // Agar theme dark hai to classes add karte hain, warna remove karte hain
     if (theme === "dark") {
       element.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -25,21 +23,20 @@ function Navbar() {
     }
   }, [theme]);
 
-  const [sticky, setSticky] = useState(false); // Sticky navbar state set karte hain
+  const [sticky, setSticky] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        setSticky(true); // Scroll hone par sticky set karte hain
+        setSticky(true);
       } else {
-        setSticky(false); // Scroll na hone par sticky remove karte hain
+        setSticky(false);
       }
     };
-    window.addEventListener("scroll", handleScroll); // Scroll event listener add karte hain
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); // Cleanup scroll event listener
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   const navItems = (
     <>
       <li>
@@ -49,14 +46,13 @@ function Navbar() {
         <a href="/course">Course</a>
       </li>
       <li>
-        <a>Contact</a>
+        <a href="/contact">Contact</a>
       </li>
       <li>
-        <a>About</a>
+        <a href="/about">About</a>
       </li>
     </>
-  ); // Navigation items define karte hain
-
+  );
   return (
     <>
       <div
@@ -66,7 +62,7 @@ function Navbar() {
             : ""
         }`}
       >
-        <div className="navbar">
+        <div className="navbar ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -93,21 +89,25 @@ function Navbar() {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
-                {navItems} {/* Dropdown menu ke items */}
+                {navItems}
               </ul>
             </div>
-            <a className="text-2xl font-bold cursor-pointer">bookStore</a> {/* Logo */}
+            <div className="flex flex-wrap space-x-6 flex-wrap  mt-5 justify-center">
+            <a className=" text-2xl font-bold cursor-pointer">bookStore</a>
+            <div className="basis-5 px-5 border-solid border-4 rounded-md border-black-600" ><Clock/></div>
+            </div>
+            
           </div>
           <div className="navbar-end space-x-3">
             <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">{navItems}</ul> {/* Navbar menu */}
+              <ul className="menu menu-horizontal px-1">{navItems}</ul>
             </div>
             <div className="hidden md:block">
-              <label className="px-3 py-2 border rounded-md flex items-center gap-2">
+              <label className=" px-3 py-2 border rounded-md flex items-center gap-2">
                 <input
                   type="text"
                   className="grow outline-none rounded-md px-1 dark:bg-slate-900 dark:text-white"
-                  placeholder="Search" // Search bar
+                  placeholder="Search"
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -124,14 +124,14 @@ function Navbar() {
               </label>
             </div>
             <label className="swap swap-rotate">
-              {/* Hidden checkbox jo state control karta hai */}
+              {/* this hidden checkbox controls the state */}
               <input
                 type="checkbox"
                 className="theme-controller"
                 value="synthwave"
               />
 
-              {/* Sun icon */}
+              {/* sun icon */}
               <svg
                 className="swap-off fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@ function Navbar() {
                 <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
               </svg>
 
-              {/* Moon icon */}
+              {/* moon icon */}
               <svg
                 className="swap-on fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,6 @@ function Navbar() {
               </svg>
             </label>
 
-            {/* User authentication ke basis par Logout ya Login button show karte hain */}
             {authUser ? (
               <Logout />
             ) : (
@@ -175,4 +174,4 @@ function Navbar() {
   );
 }
 
-export default Navbar; // Navbar component export karte hain
+export default Navbar;

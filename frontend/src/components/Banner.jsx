@@ -3,15 +3,17 @@ import banner from "../../public/Banner.png";
 
 function Banner() {
   return (
-    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10  dark:bg-slate-800 dark:text-white">
+    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10 dark:bg-slate-800 dark:text-white">
       <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-36">
         <div className="space-y-8">
           <h1 className="text-2xl md:text-4xl font-bold">
-            Hello, welcome here to learn something <span className="text-pink-500">new everyday</span>
+            Hello, welcome here to learn something <span className="text-green-500">new everyday</span>
           </h1>
           <p className="text-sm md:text-xl">
             Welcome to Book Haven: Your Sanctuary of Stories. Dive into our vast collection of books and discover your next favorite read. Whether you're looking for the latest bestseller, a timeless classic, or something in between, Book Haven has it all.
           </p>
+
+          
           <label className="input input-bordered flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,6 +26,8 @@ function Banner() {
             </svg>
             <input type="text" className="grow" placeholder="Email" />
           </label>
+
+
           <button className="btn mt-6 btn-secondary">Get Started</button>
         </div>
       </div>

@@ -70,6 +70,7 @@ const Freebook = () => {
           </p>
         </div>
 
+            
         <div className="slider-container">
           <Slider {...settings}>
             {book.map((item) => (
