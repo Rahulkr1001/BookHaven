@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { BACKEND_URL } from "../utils/utils";
 
 const Contact = () => {
   const {
