@@ -9,10 +9,19 @@ import userRoute from "./route/user.route.js";
 
 dotenv.config();
 
+
 //app has all functionality of express
 const app = express();
 
-app.use(cors());
+app.use(
+    cors({
+      origin: "https://book-store-app-1s6h-63en2edxh.vercel.app",
+      credentials: true,
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+    })
+  );
+// app.use(cors());
 app.use(express.json()); // aceept data in json
 
 const PORT = process.env.PORT || 4000;
