@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { BACKEND_URL } from "../utils/utils";
 
 const Contact = () => {
   const {
@@ -14,7 +15,7 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/contact', data); // Update the URL if necessary
+      const response = await axios.post('https://bookstore-app-gjkm.onrender.com/contact', data); // Update the URL if necessary
       toast.success(response.data.message); // Display the success message
     } catch (error) {
       if (error.response) {
