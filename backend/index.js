@@ -15,7 +15,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: "https://book-store-app-1s6h-63en2edxh.vercel.app",
+      origin: "https://book-store-kbvyvfsj4-himanshu-tiwaris-projects-af1b11c5.vercel.app",
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
