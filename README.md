@@ -4,6 +4,12 @@
 BookHaven is a full-stack bookstore application designed to provide users with a seamless browsing experience. This project aims to create an intuitive and efficient online platform for discovering and accessing books.
 
 
+## Recent Updates
+- **Security Enhancement (May 30, 2025)**: Removed .env file from Git tracking and added to .gitignore for better security
+- **Frontend Update**: Updated Tailwind configuration for improved styling
+- **Contact Information**: Updated maintainer contact details
+
+
 ## Features
 
 - User Authentication: Secure login, logout, and signup functionality with password hashing.
@@ -75,8 +81,24 @@ cd backend
 
 
 ## Configuration
-#### 1. Backend:
-- Create a .env file in the backend directory.
+### Environment Variables
+Create a `.env` file in the backend directory with the following structure:
+```env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# MongoDB Configuration
+Mongo_URI=your_mongodb_connection_string
+
+# JWT Configuration
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRE=7d
+
+# CORS Configuration
+FRONTEND_URL=http://localhost:5173
+```
+Note: The `.env` file is not tracked in Git for security reasons. Make sure to create it locally.
 
 ## Run Locally
 
