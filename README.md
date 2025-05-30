@@ -1,4 +1,3 @@
-
 # BookHaven
 
 
@@ -53,11 +52,10 @@ BookHaven is a full-stack bookstore application designed to provide users with a
 - MongoDB instance running locally or on a cloud service.
 ### Installation
 #### 1. Clone the repository:
- ```bash
- git clonehttps://github.com/Himanshu554466/BookStore-App
- ```
+
 ```bash
-   cd BookStore
+git clone https://github.com/Rahulkr1001/BookHaven.git
+cd BookHaven
 ```
 #### 2. Install backend dependencies:
 Copy code
@@ -116,4 +114,4 @@ Please adhere to this project's `code of conduct`.
 
 
 ## Contact
-For any inquiries or issues, please open an issue on the repository or contact the maintainer at [himanshu554466@gmail.com].
+For any inquiries or issues, please open an issue on the repository or contact the maintainer at [rahulkrsharma3580@gmail.com].
